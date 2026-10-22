@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://ainekdesign.kz/</loc>
-  </url>
-  <url>
-    <loc>https://ainekdesign.kz/ru.html</loc>
-  </url>
+  <url><loc>https://ainekdesign.kz/</loc></url>
+  <url><loc>https://ainekdesign.kz/ru.html</loc></url>
+  <url><loc>https://ainekdesign.kz/garmoshka.html</loc></url>
+  <url><loc>https://ainekdesign.kz/garmoshka-ru.html</loc></url>
+  <url><loc>https://ainekdesign.kz/demontazh.html</loc></url>
+  <url><loc>https://ainekdesign.kz/demontazh-ru.html</loc></url>
 </urlset>
