@@ -1,4 +1,52 @@
 (() => {
+  // Нажатие кнопки связи — не подтверждённая заявка или состоявшийся звонок.
+  const googleAdsId = 'AW-18498019293';
+  const contactConversion = googleAdsId + '/fs7KCNWeurYdEN2_xfRE';
+  if (typeof window.gtag !== 'function') {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', googleAdsId);
+    const tag = document.createElement('script');
+    tag.async = true;
+    tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + googleAdsId;
+    document.head.appendChild(tag);
+  }
+  document.addEventListener('click', event => {
+    if (event.defaultPrevented || (event.button !== undefined && event.button !== 0)) return;
+    const link = event.target.closest?.('a[href]');
+    if (!link) return;
+    const url = new URL(link.href, window.location.href);
+    const isWhatsApp = url.protocol === 'https:' && url.hostname === 'wa.me' &&
+      /^\/(77007202031|77077202031)\/?$/.test(url.pathname);
+    const isPhone = url.protocol === 'tel:' &&
+      /^\+?(77007202031|77077202031)$/.test(url.pathname.replace(/[\s()-]/g, ''));
+    if (!isWhatsApp && !isPhone) return;
+    const sameTab = isWhatsApp && (!link.target || link.target === '_self') &&
+      !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey;
+    let navigated = false;
+    const continueToContact = () => {
+      if (navigated || !sameTab) return;
+      navigated = true;
+      window.location.assign(link.href);
+    };
+    if (sameTab) {
+      event.preventDefault();
+      window.setTimeout(continueToContact, 800);
+    }
+    try {
+      window.gtag('event', 'conversion', {
+        send_to: contactConversion,
+        contact_method: isWhatsApp ? 'whatsapp_click' : 'phone_click',
+        transport_type: 'beacon',
+        event_callback: continueToContact,
+        event_timeout: 700
+      });
+    } catch (_) { continueToContact(); }
+  });
+})();
+
+(() => {
   // Фильтр объектов на главной
   const chips = document.querySelectorAll('.chip[data-filter]');
   chips.forEach(chip => chip.addEventListener('click', () => {
