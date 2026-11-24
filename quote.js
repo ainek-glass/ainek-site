@@ -1,9 +1,9 @@
 (() => {
   const kk = document.documentElement.lang === 'kk';
   const t = (ru, kz) => kk ? kz : ru;
-  const services = [t('Офисные перегородки','Кеңсе қалқалары'), t('Стеклянные перегородки','Әйнек қалқалар'), t('Алюминиевые перегородки','Алюминий қалқалар'), t('Перегородки гармошка','Жиналмалы қалқалар'), t('Окна и двери','Терезелер мен есіктер'), t('Демонтаж конструкций','Конструкцияларды бөлшектеу')];
+  const services = [t('Офисные перегородки','Кеңсе қалқалары'), t('Стеклянные перегородки','Әйнек қалқалар'), t('Алюминиевые перегородки','Алюминий қалқалар'), t('Перегородки гармошка','Жиналмалы қалқалар'), t('Окна и двери','Терезелер мен есіктер'), t('Демонтаж конструкций','Конструкцияларды бөлшектеу'), t('Металлопластиковые окна и двери','Металлопластик терезелер мен есіктер')];
   const file = location.pathname;
-  const initial = file.includes('garmoshka') ? 3 : file.includes('demontazh') ? 5 : 0;
+  const initial = file.includes('pvc-windows-doors') ? 6 : file.includes('garmoshka') ? 3 : file.includes('demontazh') ? 5 : 0;
   // Prepare a draft only. No personal details are stored or sent to analytics.
   document.querySelectorAll('a[href*="wa.me/"]').forEach(a => {
     const u = new URL(a.href);
