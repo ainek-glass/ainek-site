@@ -1,0 +1,23 @@
+/* Two views of one design. Keep the full frame and opening visible. */
+.partition-visual{padding-block:clamp(36px,5vw,64px);border-top:1px solid #c9cdd0;scroll-margin-top:84px}
+.partition-visual-heading{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:24px}
+.partition-visual-label{display:inline-block;font-size:14px;font-weight:700;padding:5px 10px;border:1px solid #9aa1a6;color:#2e3337}
+.partition-visual h2{margin:0;font-size:clamp(25px,3vw,38px);line-height:1.2}
+.partition-visual p{max-width:760px;margin:0;color:#2e3337}
+.partition-visual-grid.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.partition-visual-grid figure{margin:0;min-width:0}
+.partition-visual-grid a{display:block;cursor:zoom-in}
+.partition-visual-grid img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;border-radius:0}
+.partition-visual-grid figcaption{font-size:16px;line-height:1.4;font-weight:700;margin-top:10px}
+.partition-visual .partition-visual-note{font-size:14px;margin-top:16px}
+@media(max-width:540px){.partition-visual-grid.gallery{grid-template-columns:1fr;gap:24px}}
+/* Lightbox on the legacy service pages, without changing their layout. */
+.partition-lightbox{position:fixed;inset:0;z-index:100;background:rgba(8,9,10,.95);display:flex;align-items:center;justify-content:center;flex-direction:column;padding:56px 64px}
+.partition-lightbox[hidden]{display:none}
+.partition-lightbox img{max-width:100%;max-height:calc(100vh - 140px);object-fit:contain}
+.partition-lightbox button{position:absolute;min-width:48px;min-height:48px;background:#fff;color:#0b0c0d;border:0;cursor:pointer;font-size:26px;line-height:1}
+.partition-lightbox .lb-close{top:12px;right:12px}
+.partition-lightbox .lb-prev{left:8px;top:50%;transform:translateY(-50%)}
+.partition-lightbox .lb-next{right:8px;top:50%;transform:translateY(-50%)}
+.partition-lightbox .lb-count{color:#fff;margin-top:12px;text-align:center;font-size:15px}
+@media(max-width:600px){.partition-lightbox{padding:64px 12px 72px}.partition-lightbox .lb-prev,.partition-lightbox .lb-next{top:auto;bottom:12px;transform:none}}
