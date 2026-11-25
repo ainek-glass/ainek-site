@@ -1,0 +1,16 @@
+/* Keep portrait media complete and load the video only when requested. */
+.media-showcase{padding-block:clamp(36px,5vw,64px);border-top:1px solid #c9cdd0;scroll-margin-top:84px}
+.media-showcase-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(24px,5vw,64px)}
+.media-showcase-copy{display:flex;flex-direction:column;gap:16px}
+.media-showcase h2{margin:0;font-size:clamp(25px,3vw,38px);line-height:1.2}
+.media-showcase p{margin:0;color:#2e3337;font-size:18px;max-width:600px}
+.media-video{width:100%;max-width:380px;margin:0;justify-self:center}
+.media-video video{display:block;width:100%;height:auto;aspect-ratio:478/850;object-fit:contain;background:#0b0c0d}
+.media-video figcaption,.cabin-concept-gallery figcaption{margin-top:10px;font-size:14px;line-height:1.4;color:#2e3337}
+.cabin-concept-gallery figure{margin:0;min-width:0}
+.cabin-concept-gallery a{display:block;cursor:zoom-in}
+.cabin-concept-gallery img{display:block;width:100%;height:auto;object-fit:contain}
+.pvc-installation-gallery img{height:auto;object-fit:contain;background:#e8eaeb}
+.pvc-installation-gallery figcaption{font-size:14px}
+#pvc-installations{scroll-margin-top:84px}
+@media(max-width:640px){.media-showcase-layout{grid-template-columns:1fr}.media-showcase p{font-size:16px}.media-video{max-width:360px}.pvc-installation-gallery figcaption{font-size:14px}}
